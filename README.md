@@ -1,5 +1,12 @@
 # AP-physics
 提前预备课程知识点笔记
+## 📄 License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+[![CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+
 
 <!-- 许可证信息卡片 – 适用于 GitHub README.md -->
 <div style="border:1px solid #ddd; border-radius:8px; padding:16px; background:#f9f9f9; max-width:500px; font-family:sans-serif;">
