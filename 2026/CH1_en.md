@@ -163,6 +163,72 @@ Decompose vector $\vec{v}$ into perpendicular components (let $\theta$ be the an
 - Let right be positive
 - Net force $F_{net} = 5 + (-3) = \mathbf{2\ N}$ (to the right)
 
+### 5.4 🧪 Derivation: Geometric Foundation of Vector Decomposition & Composition
+
+Vector addition has two equivalent methods — the **graphical method** (parallelogram law) and the **analytical method** (component addition). Here we prove their equivalence.
+
+#### Parallelogram Law
+
+For two vectors $\vec{a}$ and $\vec{b}$, their resultant $\vec{c} = \vec{a} + \vec{b}$ is the diagonal of the parallelogram formed by $\vec{a}$ and $\vec{b}$ as adjacent sides.
+
+#### From Parallelogram Law → Component Addition
+
+Let $\vec{a} = a_x\hat{i} + a_y\hat{j}$, $\vec{b} = b_x\hat{i} + b_y\hat{j}$, with angle $\phi$ between them.
+
+According to the parallelogram law, the magnitude of the resultant is:
+
+$$
+c = \sqrt{a^2 + b^2 + 2ab\cos\phi}
+$$
+
+According to component addition:
+
+$$
+\vec{c} = (a_x + b_x)\hat{i} + (a_y + b_y)\hat{j}
+$$
+
+Its magnitude is:
+
+$$
+|c| = \sqrt{(a_x + b_x)^2 + (a_y + b_y)^2}
+$$
+
+Since $a_x = a\cos\theta_a$, $a_y = a\sin\theta_a$, $b_x = b\cos\theta_b$, $b_y = b\sin\theta_b$, substituting and expanding:
+
+$$
+|c| = \sqrt{a^2 + b^2 + 2ab(\cos\theta_a\cos\theta_b + \sin\theta_a\sin\theta_b)} = \sqrt{a^2 + b^2 + 2ab\cos(\theta_a - \theta_b)}
+$$
+
+where $\phi = \theta_a - \theta_b$ is exactly the angle between the two vectors. Both methods yield the **identical result**! ✅
+
+> 💡 **Core Conclusion**: The parallelogram law and component addition are **completely equivalent** — the analytical method simply converts a geometric problem into algebraic calculations.
+
+### 5.5 🧪 Example: Adding Multiple Vectors
+
+**Problem**: An object is subjected to three forces: $\vec{F}_1 = 3\hat{i} + 4\hat{j}\ \text{N}$, $\vec{F}_2 = -2\hat{i} + \hat{j}\ \text{N}$, $\vec{F}_3 = \hat{i} - 3\hat{j}\ \text{N}$. Find the magnitude and direction of the resultant force.
+
+**Solution**:
+
+**(1)** Add components:
+
+$$
+\vec{F}_{net} = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 = (3 - 2 + 1)\hat{i} + (4 + 1 - 3)\hat{j} = 2\hat{i} + 2\hat{j}\ \text{N}
+$$
+
+**(2)** Magnitude:
+
+$$
+|\vec{F}_{net}| = \sqrt{2^2 + 2^2} = \sqrt{8} = 2\sqrt{2} \approx \mathbf{2.83\ N}
+$$
+
+**(3)** Direction (angle from the positive $x$-axis):
+
+$$
+\theta = \tan^{-1}\left(\frac{2}{2}\right) = \tan^{-1}(1) = \mathbf{45^\circ}
+$$
+
+> ⭐ **No matter how many vectors you add, simply sum their $x$ and $y$ components separately!**
+
 ---
 
 # Part B: AP Difficulty Layer (Conceptual Traps & Deep Understanding)
@@ -290,9 +356,9 @@ AP Physics C requires upgrading from an **algebraic perspective** to a **calculu
 
 ```
 Position Vector ──differentiate──▶ Velocity Vector ──differentiate──▶ Acceleration Vector
-   ⃤ r(t)              ⃤ v(t)              ⃤ a(t)
-     │                     │                     │
-     ◀──integrate────      ◀──integrate────
+ →r(t)              →v(t)              →a(t)
+   │                   │                   │
+   ◀──integrate────    ◀──integrate────
 ```
 
 ### 7.3 🧪 AP Physics C Exam-Style Example
@@ -581,6 +647,119 @@ $$\Delta x = v_0 t + \frac{1}{2}at^2 = 0 + \frac{1}{2} \times 2 \times 5^2 = \ma
 | $v_0,\ v,\ a$ | $\Delta x$ | ③ rearranged: $\Delta x = \dfrac{v^2-v_0^2}{2a}$ |
 | $v_0,\ v,\ t$ | $\Delta x$ | $\Delta x = \dfrac{v_0+v}{2}\cdot t$ (derived from ① and ②) |
 
+#### 3.5 🧪 Derivation: Mutual Relationships Among the Three Big Equations
+
+The three equations are not independent — they can be derived sequentially from the definition of uniform acceleration.
+
+> **Starting point**: Acceleration is constant $a = \text{constant}$, and $a = \dfrac{dv}{dt}$ (calculus definition).
+
+##### Deriving Equation ① (Velocity-Time Relation) from the Definition
+
+From $a = \dfrac{dv}{dt}$, integrate with respect to time:
+
+$$
+\int_{v_0}^{v} dv = \int_{0}^{t} a\ dt = a \int_{0}^{t} dt
+$$
+
+$$
+v - v_0 = at \quad\Rightarrow\quad \boxed{v = v_0 + at}
+$$
+
+✅ This is Equation ①.
+
+##### Deriving Equation ② (Position-Time Relation) from Equation ①
+
+From $v = \dfrac{dx}{dt}$, substitute Equation ①:
+
+$$
+\frac{dx}{dt} = v_0 + at
+$$
+
+Integrate with respect to time:
+
+$$
+\int_{x_0}^{x} dx = \int_{0}^{t} (v_0 + at)\ dt
+$$
+
+$$
+x - x_0 = v_0 t + \frac{1}{2}at^2 \quad\Rightarrow\quad \boxed{\Delta x = v_0 t + \frac{1}{2}at^2}
+$$
+
+✅ This is Equation ②.
+
+##### Deriving Equation ③ (Velocity-Displacement Relation) from Equations ① and ②
+
+From Equation ①, solve for $t = \dfrac{v - v_0}{a}$ and substitute into Equation ②:
+
+$$
+\Delta x = v_0\left(\frac{v - v_0}{a}\right) + \frac{1}{2}a\left(\frac{v - v_0}{a}\right)^2
+$$
+
+$$
+\Delta x = \frac{v_0(v - v_0)}{a} + \frac{(v - v_0)^2}{2a}
+$$
+
+Combine terms:
+
+$$
+\Delta x = \frac{2v_0(v - v_0) + (v - v_0)^2}{2a} = \frac{(v - v_0)(2v_0 + v - v_0)}{2a}
+$$
+
+$$
+\Delta x = \frac{(v - v_0)(v + v_0)}{2a} = \frac{v^2 - v_0^2}{2a}
+$$
+
+Rearranging:
+
+$$
+\boxed{v^2 = v_0^2 + 2a\Delta x}
+$$
+
+✅ This is Equation ③.
+
+> ⭐ **You only need to memorize any two equations (usually ① and ②); the third can always be derived algebraically!**
+
+#### 3.6 🧪 Example: The Pursuit Problem
+
+**Problem**: A car travels at a constant speed of $20\ \text{m/s}$. The driver notices a truck $80\ \text{m}$ ahead traveling at $10\ \text{m/s}$ in the same direction. The driver immediately applies the brakes, producing a constant deceleration of $2\ \text{m/s}^2$.
+
+(a) Will the car collide with the truck?
+(b) If yes, how many seconds after braking does the collision occur?
+(c) If no, what is the minimum distance between them?
+
+**Solution**:
+
+Let the car's initial position be $x=0$ and the truck's initial position be $x=80\ \text{m}$.
+
+Car: $x_C(t) = 20t - \frac{1}{2} \times 2 \times t^2 = 20t - t^2$ (decelerating)
+Truck: $x_T(t) = 80 + 10t$ (constant speed)
+
+**(a)** A collision occurs when positions are equal:
+
+$$
+20t - t^2 = 80 + 10t
+$$
+
+$$
+-t^2 + 10t - 80 = 0 \quad\Rightarrow\quad t^2 - 10t + 80 = 0
+$$
+
+Discriminant $\Delta = 100 - 320 = -220 < 0$, **no real solution** → **no collision** ✅
+
+**(b)** No real solution means no collision.
+
+**(c)** The distance between them is $d(t) = x_T(t) - x_C(t) = (80 + 10t) - (20t - t^2) = t^2 - 10t + 80$
+
+This is an upward-opening quadratic. The minimum occurs at $t = -\frac{b}{2a} = \frac{10}{2} = 5\ \text{s}$:
+
+$$
+d_{min} = 5^2 - 10 \times 5 + 80 = 25 - 50 + 80 = \mathbf{55\ m}
+$$
+
+The minimum distance is **55 m** — no collision. ✅
+
+> ⭐ **Key Strategy**: Set position equations equal to check for collisions. If there's no real solution, they don't collide. Find the minimum distance using quadratic optimization or the condition of zero relative velocity.
+
 ---
 
 ### IV. Free Fall Motion
@@ -615,6 +794,93 @@ $$45 = \frac{1}{2} \times 10 \times t^2 \quad\Rightarrow\quad t^2 = 9 \quad\Righ
 
 **(b)** Using $v = gt$:
 $$v = 10 \times 3 = \mathbf{30\ m/s}\ (\text{downward})$$
+
+#### 4.4 🧪 Derivation: Free Fall Equations from Calculus
+
+Starting from Newton's second law, free fall involves only gravity $F = mg$:
+
+$$
+a = \frac{F}{m} = g \quad (\text{directed downward})
+$$
+
+Let downward be positive. Integrate the acceleration to find velocity:
+
+$$
+v(t) = \int a\ dt = \int g\ dt = gt + C
+$$
+
+Using the initial condition $v(0) = 0$, we get $C = 0$, so:
+
+$$
+\boxed{v = gt}
+$$
+
+Integrate velocity to find position:
+
+$$
+y(t) = \int v(t)\ dt = \int gt\ dt = \frac{1}{2}gt^2 + D
+$$
+
+Using $y(0) = 0$, we get $D = 0$, so:
+
+$$
+\boxed{h = \frac{1}{2}gt^2}
+$$
+
+The equation $v^2 = 2gh$ can also be obtained by eliminating $t$ from $v = gt$ and $h = \frac{1}{2}gt^2$:
+
+$$
+t = \frac{v}{g} \quad\Rightarrow\quad h = \frac{1}{2}g\left(\frac{v}{g}\right)^2 = \frac{v^2}{2g} \quad\Rightarrow\quad \boxed{v^2 = 2gh}
+$$
+
+> 💡 **Advantage of Calculus**: If gravitational acceleration varies with height (e.g., $g(y)$ is not constant), the algebraic method fails, but the calculus method still works!
+
+#### 4.5 🧪 Example: Complete Analysis of Vertical Projectile Motion
+
+**Problem**: A ball is thrown straight upward with an initial speed of $30\ \text{m/s}$ ($g = 10\ \text{m/s}^2$, neglect air resistance).
+Find:
+(a) The time to reach the highest point
+(b) The maximum height
+(c) The total time from launch to return to the starting point
+(d) The velocity just before returning to the starting point
+(e) The velocity and position at $t = 2\ \text{s}$ and $t = 5\ \text{s}$
+
+**Solution**:
+
+Let upward be the positive direction, $v_0 = +30\ \text{m/s}$, $a = -g = -10\ \text{m/s}^2$.
+
+**(a)** At the highest point, $v = 0$:
+
+$$0 = 30 - 10t \quad\Rightarrow\quad t_{up} = \mathbf{3\ s}$$
+
+**(b)** Maximum height:
+
+$$H = v_0 t_{up} - \frac{1}{2}gt_{up}^2 = 30 \times 3 - 5 \times 9 = 90 - 45 = \mathbf{45\ m}$$
+
+**(c)** Return to start when $y=0$:
+
+$$0 = 30t - 5t^2 \quad\Rightarrow\quad t(30 - 5t) = 0$$
+$$t = 0\ (\text{launch}),\quad t = \mathbf{6\ s}\ (\text{return})$$
+
+> ⭐ Note that $t_{total} = 2 \times t_{up} = 6\ \text{s}$ — the ascent time equals the descent time (symmetry).
+
+**(d)** Velocity upon return:
+
+$$v = v_0 - gt = 30 - 10 \times 6 = -30\ \text{m/s}$$
+
+The speed is $30\ \text{m/s}$, directed **downward** (opposite to the initial velocity). ✅
+
+**(e)** At $t=2\ \text{s}$ (ascending):
+
+$$v(2) = 30 - 20 = 10\ \text{m/s}\ (\text{upward})$$
+$$y(2) = 30 \times 2 - 5 \times 4 = 60 - 20 = \mathbf{40\ m}\ (\text{still rising})$$
+
+At $t=5\ \text{s}$ (descending):
+
+$$v(5) = 30 - 50 = -20\ \text{m/s}\ (\text{downward})$$
+$$y(5) = 30 \times 5 - 5 \times 25 = 150 - 125 = \mathbf{25\ m}\ (\text{past the highest point, falling})$$
+
+> ⚠️ **Common AP Mistake**: Many students think the ball is still rising at $t=5\ \text{s}$, but it actually passed the highest point at $t=3\ \text{s}$ and is already on its way down!
 
 ---
 
@@ -1232,6 +1498,110 @@ x (m)
    0  1  2  3  4  5
 ```
 
+#### 4.6 🧪 Derivation: Mathematical Proof that v-t Area = Displacement
+
+**Core idea**: Divide the time axis into many infinitesimally small intervals $\Delta t_i$. During each $\Delta t_i$, the velocity is approximately constant (uniform motion), so the displacement $\Delta x_i \approx v(t_i) \Delta t_i$.
+
+As $\Delta t_i \to 0$, the approximation becomes exact:
+
+$$
+\Delta x = \lim_{\Delta t_i \to 0} \sum_i v(t_i) \Delta t_i = \int_{t_i}^{t_f} v(t)\ dt
+$$
+
+This is precisely the **Riemann sum → definite integral** process:
+
+```
+v(t)
+↑
+│    ╱╲
+│  ╱   ╲     Each small rectangle area ≈ v(tᵢ)·Δtᵢ
+│╱      ╲    Total area → displacement
+└─────────→ t
+  Δtᵢ
+```
+
+**Geometric meaning**: The area bounded by the v-t curve and the $t$-axis equals the displacement.
+
+> 💡 **Analogy**: Just like approximating the area under a curve with many tiny rectangles — as the rectangle width approaches 0, the total area equals the definite integral.
+
+#### 4.7 🧪 Example: Drawing Motion Graphs from a Verbal Description
+
+**Problem**: An object moves along the $x$-axis with the following motion:
+- $0 \to 2\ \text{s}$: Starts at the origin, moves right at a constant $3\ \text{m/s}$
+- $2 \to 4\ \text{s}$: Decelerates uniformly at $-2\ \text{m/s}^2$
+- $4 \to 6\ \text{s}$: Moves left at a constant $1\ \text{m/s}$
+
+Draw (a) the x-t graph, (b) the v-t graph, and (c) the a-t graph.
+
+**Solution**:
+
+**Step 1: Write the piecewise functions**
+
+Let the positive $x$-direction be to the right.
+
+$0 \to 2\ \text{s}$: constant velocity $v = 3\ \text{m/s}$, $x(t) = 3t$
+
+$2 \to 4\ \text{s}$: uniformly decelerating, $v_0 = 3\ \text{m/s}$, $a = -2\ \text{m/s}^2$
+- $v(t) = 3 - 2(t-2) = 7 - 2t$
+- $x(2) = 6\ \text{m}$, $x(t) = 6 + 3(t-2) - (t-2)^2$
+
+$4 \to 6\ \text{s}$: constant velocity left, $v = -1\ \text{m/s}$, $x(4) = 6 + 3(2) - 4 = 8\ \text{m}$
+- $x(t) = 8 - (t-4)$
+
+**Step 2: The v-t graph**
+
+```
+v (m/s)
+↑
+3 ┤══════╲
+2 ┤       ╲
+1 ┤        ╲
+0 ┼─────────╲─────────→ t (s)
+  │          ╲
+-1┤           ══════
+   0  1  2  3  4  5  6
+```
+
+- $0 \to 2$: horizontal line at $v=3$
+- $2 \to 4$: slanted line, $v$ decreasing from $3$ to $-1$
+- $4 \to 6$: horizontal line at $v=-1$
+
+**Step 3: The a-t graph**
+
+```
+a (m/s²)
+↑
+1 ┤
+0 ┼────────┬───────────→ t (s)
+  │        │
+-1┤        │
+-2┤        ═══════
+   0  1  2  3  4  5  6
+```
+
+- $0 \to 2$: $a = 0$
+- $2 \to 4$: $a = -2\ \text{m/s}^2$
+- $4 \to 6$: $a = 0$
+
+**Step 4: The x-t graph**
+
+```
+x (m)
+↑
+8 ┤            ═══
+6 ┤      ╱╲
+4 ┤    ╱    ╲
+2 ┤  ╱        ╲
+0 ┼╱──────────────→ t (s)
+   0  1  2  3  4  5  6
+```
+
+- $0 \to 2$: straight line with slope $3$
+- $2 \to 4$: downward-opening parabola (slope decreasing from positive to negative)
+- $4 \to 6$: straight line with slope $-1$, position decreasing from $8\ \text{m}$ to $6\ \text{m}$
+
+> ⭐ **Key Skill**: Being able to work backwards from a verbal description to construct motion graphs is an advanced AP Physics 1 graph skill!
+
 ---
 
 ## Part B: AP Difficulty Layer (Conceptual Traps & Deep Understanding)
@@ -1836,6 +2206,88 @@ $$
 
 > ⭐ **Core Conclusion**: Crossing time is determined only by the **velocity component perpendicular to the river bank** — it is independent of the current speed!
 
+#### 1.4.11 🧪 Derivation: Invariance of Acceleration Under the Galilean Transformation
+
+**Core idea**: In two inertial frames moving at constant velocity relative to each other, **acceleration is invariant**.
+
+**Mathematical proof**:
+
+Let frame $S'$ move with constant velocity $\vec{V}$ relative to frame $S$, with their origins coinciding at $t=0$.
+
+**Position transformation**:
+
+$$
+\vec{r}'(t) = \vec{r}(t) - \vec{V}t
+$$
+
+**Velocity transformation** (differentiate with respect to time):
+
+$$
+\vec{v}'(t) = \frac{d\vec{r}'}{dt} = \frac{d\vec{r}}{dt} - \vec{V} = \vec{v}(t) - \vec{V}
+$$
+
+**Acceleration transformation** (differentiate again):
+
+$$
+\vec{a}'(t) = \frac{d\vec{v}'}{dt} = \frac{d\vec{v}}{dt} - \frac{d\vec{V}}{dt} = \vec{a}(t) - 0 = \vec{a}(t)
+$$
+
+Since $\vec{V}$ is constant, $\dfrac{d\vec{V}}{dt} = 0$. ✅
+
+> ⭐ **Important Corollary**: Since $\vec{a}' = \vec{a}$ and mass $m$ is invariant in classical mechanics, $\vec{F} = m\vec{a}$ takes the same form in all inertial frames — this is **Galilean relativity**!
+
+#### 1.4.12 🧪 Example: Multi-Reference Frame Problem
+
+**Problem**: A train travels east at $20\ \text{m/s}$. A person on the train walks east at $2\ \text{m/s}$ (relative to the train). Meanwhile, a person on the ground rides a bicycle east at $5\ \text{m/s}$. Find:
+
+(a) The velocity of the person on the train relative to the ground
+(b) The velocity of the person on the train relative to the cyclist
+(c) The velocity of the cyclist relative to the person on the train
+
+**Solution**:
+
+Let east be the positive direction.
+
+**(a)** Given $v_{person/train} = +2\ \text{m/s}$, $v_{train/ground} = +20\ \text{m/s}$
+
+$$
+v_{person/ground} = v_{person/train} + v_{train/ground} = 2 + 20 = \mathbf{+22\ \text{m/s}\ (east)}
+$$
+
+**(b)** Find $v_{person/bike}$:
+
+Given $v_{bike/ground} = +5\ \text{m/s}$
+
+$$
+v_{person/bike} = v_{person/ground} - v_{bike/ground} = 22 - 5 = \mathbf{+17\ \text{m/s}\ (east)}
+$$
+
+Alternatively, using the chain rule:
+
+$$
+v_{person/bike} = v_{person/train} + v_{train/ground} + v_{ground/bike}
+$$
+
+Note that $v_{ground/bike} = -v_{bike/ground} = -5\ \text{m/s}$:
+
+$$
+v_{person/bike} = 2 + 20 + (-5) = \mathbf{+17\ \text{m/s}\ (east)}
+$$
+
+**(c)** By symmetry:
+
+$$
+v_{bike/person} = -v_{person/bike} = \mathbf{-17\ \text{m/s}\ (west)}
+$$
+
+> ⭐ **Chain Rule Technique**: Relative velocities can be chained through any number of intermediate reference frames:
+>
+> $$
+> \vec{v}_{A/Z} = \vec{v}_{A/B} + \vec{v}_{B/C} + \vec{v}_{C/D} + \cdots + \vec{v}_{Y/Z}
+> $$
+>
+> As long as consecutive subscripts "connect end-to-end"!
+
 ---
 
 ## Part B: AP Difficulty Layer (Conceptual Traps & Deep Understanding)
@@ -2248,7 +2700,9 @@ $$
 
 ---
 
-### I. The Core Idea of Projectile Motion — Independence of Motion####1.5.1 Core Principle> Projectile motion can be decomposed into two **mutually independent** one-dimensional motions:
+### I. The Core Idea of Projectile Motion — Independence of Motion
+
+#### 1.5.1 Core Principle> Projectile motion can be decomposed into two **mutually independent** one-dimensional motions:
 
 $$
 \boxed{\text{Projectile Motion} = \text{Horizontal Uniform Motion} + \text{Vertical Uniformly Accelerated Motion}}
@@ -2261,10 +2715,17 @@ $$
 
 > 💡 **Galileo's Insight**: Horizontal and vertical motions are **completely independent** — analyze them separately and then combine!
 
-####1.5.2 Vector Decomposition — Initial VelocityDecompose the initial velocity $\vec{v}_0$ into horizontal and vertical components (let $\theta$ be the angle with the horizontal):
+#### 1.5.2 Vector Decomposition — Initial Velocity
+
+Decompose the initial velocity $\vec{v}_0$ into horizontal and vertical components (let $\theta$ be the angle with the horizontal):
 
 ```
-↑ v₀ |↗ v₀y |/ θ |/→ v₀x └──────→```
+    ↑ v₀
+    |↗
+  v₀y |/ θ
+    |/→ v₀x
+    └──────→
+```
 
 $$
 \boxed{v_{0x} = v_0 \cos\theta \quad\quad v_{0y} = v_0 \sin\theta}
@@ -2272,18 +2733,24 @@ $$
 
 ---
 
-### II. Horizontal Projectile Motion####1.5.3 Initial ConditionsAn object is launched horizontally from a height $h$ with initial speed $v_0$:
+### II. Horizontal Projectile Motion#### 1.5.3 Initial Conditions
+
+An object is launched horizontally from a height $h$ with initial speed $v_0$:
 
 - $v_{0x} = v_0$, $v_{0y} =0$
 - $a_x =0$, $a_y = -g$
 - Let the launch point be the origin: $x_0 =0$, $y_0 = h$
 
-####1.5.4 Equations of Motion| Direction | Position Equation | Velocity Equation |
+#### 1.5.4 Equations of Motion
+
+| Direction | Position Equation | Velocity Equation |
 |:--|:--|:--|
 | **Horizontal** | $x(t) = v_0 t$ | $v_x(t) = v_0$ |
 | **Vertical** | $y(t) = h - \dfrac{1}{2}gt^2$ | $v_y(t) = -gt$ |
 
-####1.5.5 🧪 Basic Example**Problem**: A small ball is thrown horizontally from the top of an $80\ \text{m}$ tall building with an initial speed of $20\ \text{m/s}$ ($g =10\ \text{m/s}^2$). Find:
+#### 1.5.5 🧪 Basic Example
+
+**Problem**： A small ball is thrown horizontally from the top of an $80\ \text{m}$ tall building with an initial speed of $20\ \text{m/s}$ ($g =10\ \text{m/s}^2$). Find:
 (a) Time to reach the ground(b) Horizontal range(c) Velocity just before hitting the ground**Solution**:
 
 **(a)** When it hits the ground, $y=0$:
@@ -2303,18 +2770,24 @@ Magnitude: $v = \sqrt{20^2 +40^2} = \sqrt{2000} \approx44.7\ \text{m/s}$
 
 Direction: $\phi = \tan^{-1}\left(\dfrac{40}{20}\right) \approx63.4^\circ$ below the horizontal---
 
-### III. Projectile Motion at an Angle####1.5.6 Initial ConditionsAn object is launched from ground level with initial speed $v_0$ at angle $\theta$ above the horizontal:
+### III. Projectile Motion at an Angle#### 1.5.6 Initial Conditions
+
+An object is launched from ground level with initial speed $v_0$ at angle $\theta$ above the horizontal:
 
 - $v_{0x} = v_0\cos\theta$, $v_{0y} = v_0\sin\theta$
 - $a_x =0$, $a_y = -g$
 - Let the launch point be the origin: $x_0 =0$, $y_0 =0$
 
-####1.5.7 Equations of Motion| Direction | Position Equation | Velocity Equation |
+#### 1.5.7 Equations of Motion
+
+| Direction | Position Equation | Velocity Equation |
 |:--|:--|:--|
 | **Horizontal** | $x(t) = (v_0\cos\theta) t$ | $v_x(t) = v_0\cos\theta$ |
 | **Vertical** | $y(t) = (v_0\sin\theta) t - \dfrac{1}{2}gt^2$ | $v_y(t) = v_0\sin\theta - gt$ |
 
-####1.5.8 🧪 Basic Example**Problem**: A ball is launched at $30\ \text{m/s}$ at an angle of $30^\circ$ above the horizontal ($g =10\ \text{m/s}^2$). Find:
+#### 1.5.8 🧪 Basic Example
+
+**Problem**： A ball is launched at $30\ \text{m/s}$ at an angle of $30^\circ$ above the horizontal ($g =10\ \text{m/s}^2$). Find:
 (a) Time of flight(b) Horizontal range(c) Maximum height**Solution**:
 
 $v_{0x} =30\cos30^\circ =30 \times \frac{\sqrt{3}}{2} \approx25.98\ \text{m/s}$
@@ -2337,7 +2810,9 @@ $$H = v_{0y}t_{top} - \frac{1}{2}gt_{top}^2 =15 \times1.5 -5 \times (1.5)^2 =22.
 
 ---
 
-### IV. Key Parameters of Projectile Motion####1.5.9 Time of FlightTotal time from launch to landing at the same height:
+### IV. Key Parameters of Projectile Motion#### 1.5.9 Time of Flight
+
+Total time from launch to landing at the same height:
 
 $$
 \boxed{T = \frac{2v_0\sin\theta}{g}}
@@ -2345,25 +2820,33 @@ $$
 
 > Derivation: Set $y=0$, solve $v_0\sin\theta \cdot t - \frac{1}{2}gt^2 =0$. Other than $t=0$, $t = \frac{2v_0\sin\theta}{g}$.
 
-####1.5.10 Horizontal Range$$
+#### 1.5.10 Horizontal Range
+
+$$
 \boxed{R = \frac{v_0^2\sin2\theta}{g}}
 $$
 
 > Derivation: $R = v_{0x} \times T = (v_0\cos\theta) \times \frac{2v_0\sin\theta}{g} = \frac{v_0^2 \cdot2\sin\theta\cos\theta}{g} = \frac{v_0^2\sin2\theta}{g}$.
 
-####1.5.11 Maximum Height$$
+#### 1.5.11 Maximum Height
+
+$$
 \boxed{H = \frac{v_0^2\sin^2\theta}{2g}}
 $$
 
 > Derivation: At max height $v_y=0$, $0 = v_0\sin\theta - gt_{top}$, $t_{top} = \frac{v_0\sin\theta}{g}$, substitute into $y$ equation.
 
-####1.5.12 Important Conclusions| Conclusion | Explanation |
+#### 1.5.12 Important Conclusions
+
+| Conclusion | Explanation |
 |:--|:--|
 | **Maximum range at $\theta =45^\circ$** | $\sin2\theta$ reaches its maximum value of1 when $2\theta =90^\circ$, i.e., $\theta =45^\circ$ |
 | **Complementary angles have equal range** | $\theta$ and $90^\circ - \theta$ yield the same range (since $\sin2\theta = \sin(180^\circ -2\theta)$) |
 | **Minimum speed at the highest point** | At the top, $v_y=0$, only the horizontal component remains: $v_x = v_0\cos\theta$ |
 
-####1.5.13 Comparison of Different Launch Angles| Launch Angle $\theta$ | Time of Flight | Horizontal Range | Maximum Height | Trajectory Shape |
+#### 1.5.13 Comparison of Different Launch Angles
+
+| Launch Angle $\theta$ | Time of Flight | Horizontal Range | Maximum Height | Trajectory Shape |
 |:--:|:--:|:--:|:--:|:--:|
 | $15^\circ$ | Short | Medium | Low | Low, flat parabola |
 | $30^\circ$ | Medium | Large | Medium | — |
@@ -2373,7 +2856,9 @@ $$
 
 ---
 
-### V. Equation of the Trajectory####1.5.14 Eliminating Time from Parametric EquationsParametric equations:
+### V. Equation of the Trajectory#### 1.5.14 Eliminating Time from Parametric Equations
+
+Parametric equations:
 
 $$
 x = (v_0\cos\theta) t \quad\Rightarrow\quad t = \frac{x}{v_0\cos\theta}
@@ -2388,17 +2873,144 @@ $$
 \boxed{y = x\tan\theta - \frac{g}{2v_0^2\cos^2\theta} x^2}
 $$
 
-####1.5.15 Shape Analysis$$
+#### 1.5.15 Shape Analysis
+
+$$
 y = ax^2 + bx + c \quad\text{where}\quad a = -\frac{g}{2v_0^2\cos^2\theta} <0$$
 
 - $a <0$ ⇒ **downward-opening parabola**
-- This is a **quadratic function** — the trajectory is a parabola---
+- This is a **quadratic function** — the trajectory is a parabola
+
+#### 1.5.16 🧪 Derivation: Rigorous Proof that $45^\circ$ Maximizes Range
+
+**Problem**: For a given initial speed $v_0$, which launch angle $\theta$ gives the maximum horizontal range $R$?
+
+**Derivation**:
+
+Starting from the range formula:
+
+$$
+R(\theta) = \frac{v_0^2 \sin 2\theta}{g}
+$$
+
+where $v_0$ and $g$ are constants. Take the first derivative of $R$ with respect to $\theta$:
+
+$$
+\frac{dR}{d\theta} = \frac{v_0^2}{g} \cdot \frac{d}{d\theta}(\sin 2\theta) = \frac{v_0^2}{g} \cdot 2\cos 2\theta
+$$
+
+Set $\dfrac{dR}{d\theta} = 0$:
+
+$$
+\frac{2v_0^2}{g}\cos 2\theta = 0 \quad\Rightarrow\quad \cos 2\theta = 0
+$$
+
+$$
+2\theta = \frac{\pi}{2} \quad\Rightarrow\quad \theta = \frac{\pi}{4} = 45^\circ
+$$
+
+**Verify it's a maximum** (second derivative test):
+
+$$
+\frac{d^2R}{d\theta^2} = \frac{v_0^2}{g} \cdot (-4\sin 2\theta)
+$$
+
+Substitute $\theta = 45^\circ$ (so $2\theta = 90^\circ$):
+
+$$
+\frac{d^2R}{d\theta^2}\bigg|_{\theta=45^\circ} = \frac{v_0^2}{g} \cdot (-4\sin 90^\circ) = -\frac{4v_0^2}{g} < 0
+$$
+
+The second derivative is negative ⇒ **maximum** ✅
+
+**Maximum range**:
+
+$$
+R_{max} = \frac{v_0^2 \sin(2 \times 45^\circ)}{g} = \frac{v_0^2 \sin 90^\circ}{g} = \boxed{\frac{v_0^2}{g}}
+$$
+
+> ⭐ **Physical Intuition**: At $45^\circ$, the horizontal and vertical components of velocity are equal ($v_{0x}=v_{0y}=v_0/\sqrt{2}$), striking the perfect balance between "flying far enough" and "staying in the air long enough"!
+
+#### 1.5.17 🧪 Example: Choosing the Right Launch Angle
+
+**Problem**: A soccer player wants to kick a ball over a wall that is $3\ \text{m}$ high and $20\ \text{m}$ away. The ball is kicked with an initial speed of $20\ \text{m/s}$ from ground level. ($g = 10\ \text{m/s}^2$)
+
+(a) Can the ball clear the wall?
+(b) If so, what range of launch angles will work?
+
+**Solution**:
+
+**(a)** First, find the trajectory equation:
+
+Parametric equations: $x = (v_0\cos\theta)t$, $y = (v_0\sin\theta)t - \frac{1}{2}gt^2$
+
+Eliminate $t$:
+
+$$
+y = x\tan\theta - \frac{g}{2v_0^2\cos^2\theta} x^2
+$$
+
+Substitute $v_0 = 20$, $g = 10$, $x = 20$:
+
+$$
+y(20) = 20\tan\theta - \frac{10}{2 \times 400 \times \cos^2\theta} \times 400 = 20\tan\theta - \frac{5}{\cos^2\theta}
+$$
+
+Using $\dfrac{1}{\cos^2\theta} = 1 + \tan^2\theta$:
+
+$$
+y(20) = 20\tan\theta - 5(1 + \tan^2\theta) = -5\tan^2\theta + 20\tan\theta - 5
+$$
+
+**(b)** Set $y(20) > 3$:
+
+$$
+-5\tan^2\theta + 20\tan\theta - 5 > 3
+$$
+
+$$
+-5\tan^2\theta + 20\tan\theta - 8 > 0
+$$
+
+$$
+5\tan^2\theta - 20\tan\theta + 8 < 0
+$$
+
+Solve $5u^2 - 20u + 8 = 0$ (where $u = \tan\theta$):
+
+$$
+u = \frac{20 \pm \sqrt{400 - 160}}{10} = \frac{20 \pm \sqrt{240}}{10} = \frac{20 \pm 4\sqrt{15}}{10} = 2 \pm \frac{2\sqrt{15}}{5}
+$$
+
+$$
+u_1 \approx 2 - 1.55 = 0.45,\quad u_2 \approx 2 + 1.55 = 3.55
+$$
+
+So the range of $\tan\theta$ is:
+
+$$
+0.45 < \tan\theta < 3.55
+$$
+
+Therefore:
+
+$$
+\theta_{min} \approx \tan^{-1}(0.45) \approx \mathbf{24.2^\circ},\quad \theta_{max} \approx \tan^{-1}(3.55) \approx \mathbf{74.3^\circ}
+$$
+
+> ⭐ **Conclusion**: When the launch angle is between **$24.2^\circ$ and $74.3^\circ$**, the ball can clear the $3\ \text{m}$ wall. Angles outside this range will hit the wall!
+>
+> Note that $\theta = 45^\circ$ is within this range, but it's not the only feasible angle — projectile motion has a **dual solution** property where both lower and higher angles can reach the same target point.
+
+---
 
 ## Part B: AP Difficulty Layer (Conceptual Traps & Deep Understanding)
 
 ---
 
-### VI. Real Conceptual Traps on the AP Exam#### 🎯 Trap1: Velocity at the Highest Point is NOT Zero!
+### VI. Real Conceptual Traps on the AP Exam
+
+#### 🎯 Trap 1: Velocity at the Highest Point is NOT Zero!
 
 **AP Must-Know Concept**:
 
@@ -2464,7 +3076,11 @@ The AP exam may give you a scenario with different landing heights and ask you t
 
 ---
 
-### VII. AP Physics C Calculus Depth####7.1 Derivation from Newton's Second Law Using CalculusIn projectile motion, $\vec{F} = m\vec{a}$, and only gravity $m\vec{g}$ acts:
+### VII. AP Physics C Calculus Depth
+
+#### 7.1 Derivation from Newton's Second Law Using Calculus
+
+In projectile motion, $\vec{F} = m\vec{a}$, and only gravity $m\vec{g}$ acts:
 
 $$
 \vec{a} = \frac{\vec{F}}{m} = \vec{g} = -g\hat{j}
@@ -2475,7 +3091,9 @@ In component form:
 $$
 a_x = \frac{d^2x}{dt^2} =0,\quad a_y = \frac{d^2y}{dt^2} = -g$$
 
-####7.2 Integrate Twice to Get the Equations of Motion**Horizontal direction**:
+#### 7.2 Integrate Twice to Get the Equations of Motion
+
+**Horizontal direction**:
 
 $$
 \frac{d^2x}{dt^2} =0 \quad\Rightarrow\quad \frac{dx}{dt} = C_1$$
@@ -2507,7 +3125,11 @@ $$
 \boxed{y(t) = (v_0\sin\theta)t - \frac{1}{2}gt^2}
 $$
 
-This is the complete calculus derivation! ✅####7.3 🧪 AP Physics C Exam-Style Example> A projectile is launched from ground level with initial velocity $\vec{v}_0 =20\hat{i} +30\hat{j}\ \text{m/s}$.
+This is the complete calculus derivation! ✅
+
+#### 7.3 🧪 AP Physics C Exam-Style Example
+
+> A projectile is launched from ground level with initial velocity $\vec{v}_0 =20\hat{i} +30\hat{j}\ \text{m/s}$.
 > ($g =10\ \text{m/s}^2$, neglect air resistance)
 >
 > **(a)** Write the position vector $\vec{r}(t)$.
