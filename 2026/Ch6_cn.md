@@ -2704,6 +2704,313 @@ $t = \dfrac{0 - 40}{-4.0} = \mathbf{10.0\ \text{s}}$
 
 **(b)** 制动过程中的角位移：$\theta = \frac{1}{2}(\omega_0 + 0)t = \frac{1}{2} \times 40 \times 10 = 200\ \text{rad}$
 
+$W = \tau\theta = (-12) \times 200 = \mathbf{-2400\ \text{J}}$
+
+**(c)** 角冲量 = $|\tau t| = 12 \times 10 = \mathbf{120\ \text{N·m·s}}$
+
+**(d)** 功-能定理：$W = \Delta K = 0 - \frac{1}{2} \times 3.0 \times 40^2 = -2400\ \text{J}$ ✓
+
+角冲量-角动量定理：$\tau t = \Delta L = 0 - 3.0 \times 40 = -120\ \text{kg·m}^2\text{/s}$ ✓
+
+---
+
+## 综合题 4：两个滑轮的角动量守恒碰撞
+
+**题目**：滑轮 A（$I_A = 2.0\ \text{kg·m}^2$）以 $\omega_A = 15\ \text{rad/s}$ 逆时针旋转，滑轮 B（$I_B = 3.0\ \text{kg·m}^2$）以 $\omega_B = 10\ \text{rad/s}$ 顺时针旋转。两滑轮突然啮合在一起（同轴）。求：
+(a) 啮合后的角速度（大小和方向）
+(b) 碰撞中的动能损失
+(c) 损失的动能占初始总动能的百分比
+
+**解答**：
+
+**(a)** 取逆时针为正：$L_A = 2.0 \times 15 = 30$，$L_B = 3.0 \times (-10) = -30$
+
+$L_{\text{total}} = 30 + (-30) = 0$ → $\omega_f = \mathbf{0}$！
+
+**(b)** $K_i = \frac{1}{2} \times 2.0 \times 15^2 + \frac{1}{2} \times 3.0 \times 10^2 = 225 + 150 = 375\ \text{J}$
+
+$K_f = 0$ → $\Delta K = \mathbf{-375\ \text{J}}$（全部损失！）
+
+**(c)** 损失 100%。两滑轮的角动量大小相等方向相反，碰撞后完全停止。
+
+---
+
+## 综合题 5：翻滚过山车的能量分析
+
+**题目**：一个实心球（$M = 0.050\ \text{kg}$，$R = 0.015\ \text{m}$，$I = \frac{2}{5}MR^2$）在半径为 $r_{\text{track}} = 0.30\ \text{m}$ 的环形轨道内纯滚动。球从高度 $h = 1.2\ \text{m}$ 处从静止释放。球能否通过最高点而不脱离轨道？
+
+**解答**：
+
+能量守恒（释放点→轨道最高点，最高点高度 $= 2r_{\text{track}} = 0.60\ \text{m}$）：
+$$
+Mgh = Mg(2r_{\text{track}}) + \frac{7}{10}Mv^2
+$$
+$$
+v^2 = \frac{10}{7}g(h - 2r_{\text{track}}) = \frac{10}{7} \times 9.8 \times (1.2 - 0.60) = 8.40
+$$
+$$
+v = \mathbf{2.90\ \text{m/s}}
+$$
+
+最高点处：$Mg + N = \dfrac{Mv^2}{r_{\text{track}}}$ → $N = M\left(\dfrac{v^2}{r_{\text{track}}} - g\right)$
+
+$N = 0.050 \times (28.0 - 9.8) = \mathbf{0.91\ \text{N} > 0}$ → 球能通过 ✓
+
+---
+
+## 综合题 6：斜面上滚动的摩擦力方向判断
+
+**题目**：一个线轴（外径 $R = 0.10\ \text{m}$，内轴 $r = 0.04\ \text{m}$，$I = \frac{1}{2}MR^2$）放在 $\theta = 30^\circ$ 的斜面上。绳绕在内轴上沿斜面向上拉。求摩擦力方向。
+
+**解答**：
+
+设沿斜面向上为正。$F - Mg\sin\theta - f = Ma$，$Fr - fR = I\alpha = \frac{1}{2}MRa$
+
+联立得：$f = F \cdot \dfrac{\beta R - r}{R(1+\beta)}$
+
+$r/R = 0.4$，$\beta = 0.5$，$\beta R = 0.5R > 0.4R = r$ → $f > 0$
+
+摩擦力沿斜面向下（阻止滑动，提供转动力矩）。
+
+---
+
+## 综合题 7：卫星轨道转移的角动量分析
+
+**题目**：一颗 $m = 500\ \text{kg}$ 的卫星在 $r = 7.0 \times 10^6\ \text{m}$ 圆轨道上。发动机沿切线方向点火，速度瞬间增加 $10\%$。求新轨道的近地点和远地点。
+
+**解答**：
+
+点火前：$v_0 = \sqrt{GM/r}$，$E_0 = -\dfrac{GMm}{2r}$，$L_0 = mrv_0$
+
+点火后：$v_1 = 1.10v_0$，$E_1 = \frac{1}{2}m(1.10v_0)^2 - \dfrac{GMm}{r}$
+
+新轨道半长轴：$a = -\dfrac{GMm}{2E_1}$
+
+$E_1 = 1.21 \cdot \frac{1}{2}mv_0^2 - GMm/r = 1.21 \cdot \frac{GMm}{2r} - \frac{GMm}{r} = \frac{GMm}{r}(0.605 - 1) = -0.395\dfrac{GMm}{r}$
+
+$a = -\dfrac{GMm}{2 \times (-0.395GMm/r)} = \dfrac{r}{0.79} \approx 1.266r \approx 8.86 \times 10^6\ \text{m}$
+
+用角动量和能量求偏心率 $e$：$e = \sqrt{1 + \dfrac{2EL^2}{G^2M^2m^3}}$
+
+计算得 $r_{\min} = r$（点火点为近地点），$r_{\max} = a(1+e) \approx$ 远地点。
+
+---
+
+## 综合题 8：陀螺仪的进动（C 难度）
+
+**题目**：陀螺转子（$I = 0.020\ \text{kg·m}^2$）以 $\omega = 200\ \text{rad/s}$ 自转。质心距支点 $d = 0.050\ \text{m}$，$M = 1.5\ \text{kg}$。求进动角速度 $\Omega$。
+
+**解答**：
+
+$\tau = Mgd = 0.735\ \text{N·m}$，$L = I\omega = 4.0\ \text{kg·m}^2\text{/s}$
+
+$\Omega = \dfrac{\tau}{L} = 0.184\ \text{rad/s}$，周期 $T = 34.2\ \text{s}$
+
+---
+
+## 综合题 9：复合滑轮系统
+
+**题目**：两个同轴滑轮——实心圆盘（$M_1 = 4.0\ \text{kg}$，$R_1 = 0.20\ \text{m}$）和薄圆环（$M_2 = 2.0\ \text{kg}$，$R_2 = 0.10\ \text{m}$）。绳绕 $R_1$ 连 $m_1 = 6.0\ \text{kg}$（桌面），绳绕 $R_2$ 连 $m_2 = 3.0\ \text{kg}$（悬挂）。求系统加速度。
+
+**解答**：
+
+$I_{\text{total}} = \frac{1}{2}M_1R_1^2 + M_2R_2^2 = 0.08 + 0.02 = 0.10\ \text{kg·m}^2$
+
+$a_1 = R_1\alpha$，$a_2 = R_2\alpha = 0.5a_1$
+
+$T_1 = m_1a_1 = 6.0a_1$，$T_2 = m_2(g - a_2) = 3.0(9.8 - 0.5a_1)$
+
+$(T_2R_2 - T_1R_1) = I\alpha = I a_1/R_1$
+
+$(29.4 - 1.5a_1)0.10 - 6.0a_1 \times 0.20 = 0.10 a_1/0.20$
+
+$2.94 - 0.15a_1 - 1.20a_1 = 0.50a_1$ → $a_1 = \mathbf{1.59\ \text{m/s}^2}$
+
+---
+
+## 综合题 10：质心运动与转动的叠加
+
+**题目**：均匀细杆（$M = 1.0\ \text{kg}$，$L = 0.60\ \text{m}$）静止在光滑水平面上。$m = 0.050\ \text{kg}$ 油灰以 $v = 12\ \text{m/s}$ 垂直击中杆一端并粘住。求碰后质心速度和角速度。
+
+**解答**：
+
+动量守恒：$mv = (M+m)v_{cm}$ → $v_{cm} = 0.571\ \text{m/s}$
+
+碰撞对初始质心的角动量：$L_i = mvr_\perp$，$r_\perp = \frac{M}{M+m} \cdot \frac{L}{2} \approx 0.286\ \text{m}$
+
+$L_i = 0.050 \times 12 \times 0.286 \approx 0.171\ \text{kg·m}^2\text{/s}$
+
+碰后 $I$（对系统质心）$\approx 0.0343\ \text{kg·m}^2$
+
+$\omega = \dfrac{L_i}{I} \approx \mathbf{4.99\ \text{rad/s}}$
+
+---
+
+## 综合题 11：开普勒定律验证
+
+**题目**：火星 $T = 687$ 天，$a = 2.28 \times 10^{11}\ \text{m}$。验证 $T^2 \propto a^3$ 并求太阳质量。
+
+**解答**：
+
+$\dfrac{T_M^2}{T_E^2} = 3.54$，$\dfrac{a_M^3}{a_E^3} = 3.51$ → 验证 ✓
+
+$M = \dfrac{4\pi^2 a^3}{GT^2} \approx \mathbf{1.99 \times 10^{30}\ \text{kg}}$
+
+---
+
+## 综合题 12：飞轮储能工程设计
+
+**题目**：设计储存 $1.0\ \text{MJ}$ 的钢制飞轮（$\rho = 7800\ \text{kg/m}^3$，实心圆柱，$R = 0.40\ \text{m}$，$\omega_{\max} = 500\ \text{rad/s}$）。求厚度。
+
+**解答**：
+
+$I = \dfrac{2E}{\omega_{\max}^2} = 8.0\ \text{kg·m}^2$，$M = \dfrac{2I}{R^2} = 100\ \text{kg}$
+
+$h = \dfrac{M}{\rho\pi R^2} \approx \mathbf{2.55\ \text{cm}}$
+
+---
+
+## 综合题 13：滑动到滚动的能量损失
+
+**题目**：实心球（$M = 0.50\ \text{kg}$，$R = 0.040\ \text{m}$）以 $v_0 = 3.0\ \text{m/s}$、$\omega_0 = 0$ 沿 $\mu_k = 0.25$ 水平面滑动。求过渡到纯滚动损失的能量。
+
+**解答**：
+
+纯滚动条件建立时间 $t = \dfrac{2v_0}{7\mu_k g} \approx 0.350\ \text{s}$
+
+$v_f = v_0 - \mu_k g t \approx 2.14\ \text{m/s}$
+
+$K_i = 2.25\ \text{J}$，$K_f = \frac{7}{10}Mv_f^2 \approx 1.60\ \text{J}$
+
+$\Delta K = \mathbf{-0.65\ \text{J}}$（约 29%）
+
+---
+
+## 综合题 14：有质量滑轮系统
+
+**题目**：滑轮（$I$，$R$）两侧悬 $m_1 > m_2$。释放后瞬间求角加速度。
+
+**解答**：
+
+$m_1g - T_1 = m_1a$，$T_2 - m_2g = m_2a$，$(T_1 - T_2)R = I\alpha$，$a = R\alpha$
+
+$$
+\alpha = \frac{(m_1 - m_2)gR}{I + (m_1 + m_2)R^2}
+$$
+
+---
+
+## 综合题 15：双星系统角动量
+
+**题目**：$M_1 = 2.0 \times 10^{30}\ \text{kg}$，$M_2 = 1.0 \times 10^{30}\ \text{kg}$，间距 $d = 1.0 \times 10^{12}\ \text{m}$ 绕共同质心做圆轨道。求周期和总角动量。
+
+**解答**：
+
+$r_1 = \frac{M_2}{M_1+M_2}d \approx 3.33 \times 10^{11}\ \text{m}$，$r_2 \approx 6.67 \times 10^{11}\ \text{m}$
+
+$\omega = \sqrt{\dfrac{GM_2}{d^2 r_1}} \approx 1.41 \times 10^{-9}\ \text{rad/s}$，$T \approx \mathbf{141\ \text{年}}$
+
+$L \approx \mathbf{9.4 \times 10^{44}\ \text{kg·m}^2\text{/s}}$
+
+---
+
+> **📚 第六章核心回顾**：
+>
+> 1. **转动动能**：$K_{\text{rot}} = \frac{1}{2}I\omega^2 = \dfrac{L^2}{2I}$
+> 2. **旋转功**：$W = \tau\Delta\theta$，$P = \tau\omega$
+> 3. **角动量**：$L = I\omega = rmv\sin\theta$
+> 4. **角动量守恒**：$\Sigma\tau_{\text{ext}} = 0 \Rightarrow I_i\omega_i = I_f\omega_f$
+> 5. **纯滚动**：$v_{cm} = R\omega$，$K = \frac{1}{2}Mv_{cm}^2(1 + \beta)$
+> 6. **卫星轨道**：$v = \sqrt{GM/r}$，$T^2 \propto r^3$，$E = -\dfrac{GMm}{2r}$（C 版）
+>
+> 第六章将能量和动量两大守恒定律扩展到转动世界——这是力学体系的最终完整形态。
+
+## 综合题 1：弹道摆——角动量守恒 + 能量
+
+**题目**：一个 $m = 0.050\ \text{kg}$ 的子弹以 $v_0 = 300\ \text{m/s}$ 水平射入并嵌入一个静止的均匀细杆下端。杆质量 $M = 2.0\ \text{kg}$，长度 $L = 1.0\ \text{m}$，可绕上端自由旋转。求杆摆起的最大角度。
+
+**解答**：
+
+**第一步**：碰撞瞬间角动量守恒（对杆上端）。子弹角动量 = 系统末角动量。
+
+子弹对杆上端的角动量（碰撞前）：
+$$
+L_i = mv_0L = 0.050 \times 300 \times 1.0 = 15\ \text{kg·m}^2\text{/s}
+$$
+
+系统末转动惯量（杆绕端点 $I = \frac{1}{3}ML^2$ + 子弹 $mL^2$）：
+$$
+I_f = \frac{1}{3}ML^2 + mL^2 = \frac{1}{3} \times 2.0 \times 1.0^2 + 0.050 \times 1.0^2 = 0.667 + 0.050 = 0.717\ \text{kg·m}^2
+$$
+
+末角速度：
+$$
+\omega_f = \frac{L_i}{I_f} = \frac{15}{0.717} \approx 20.92\ \text{rad/s}
+$$
+
+**第二步**：碰后能量守恒（转动动能 → 重力势能）。
+
+杆质心上升 $h_{\text{rod}} = \frac{L}{2}(1 - \cos\theta)$，子弹上升 $h_{\text{bullet}} = L(1 - \cos\theta)$。
+
+$$
+\frac{1}{2}I_f\omega_f^2 = Mg \cdot \frac{L}{2}(1 - \cos\theta) + mgL(1 - \cos\theta)
+$$
+
+$$
+\frac{1}{2} \times 0.717 \times (20.92)^2 = (2.0 \times 9.8 \times 0.5 + 0.050 \times 9.8 \times 1.0)(1 - \cos\theta)
+$$
+
+$$
+157.0 = (9.8 + 0.49)(1 - \cos\theta) = 10.29(1 - \cos\theta)
+$$
+
+$$
+1 - \cos\theta = 15.25 \quad \rightarrow \quad \text{不可能！}
+$$
+
+> ⚠️ 弹道摆问题中，若子弹动能过大，杆会转过最高点继续旋转。此处 $\omega_f$ 过大，杆会完成整圈旋转——$1 - \cos\theta$ 不能超过 2，实际 $\theta_{\max}$ 将是 $360^\circ$（完整一圈）。
+
+---
+
+## 综合题 2：滚下斜面的能量分配
+
+**题目**：一个实心球从高度 $h = 2.0\ \text{m}$ 的斜面顶端从静止纯滚动到底部。求：
+(a) 底部平动速度
+(b) 平动动能与转动动能之比
+(c) 若球不是滚动而是无摩擦滑动，底部速度是多少？
+
+**解答**：
+
+**(a)** 能量守恒：$Mgh = \frac{7}{10}Mv^2$
+
+$$
+v = \sqrt{\frac{10}{7}gh} = \sqrt{\frac{10}{7} \times 9.8 \times 2.0} = \sqrt{28} \approx \mathbf{5.29\ \text{m/s}}
+$$
+
+**(b)** $\dfrac{K_{\text{trans}}}{K_{\text{rot}}} = \dfrac{\frac{1}{2}Mv^2}{\frac{1}{5}Mv^2} = \dfrac{5}{2} = \mathbf{2.5}$
+
+**(c)** 纯滑动：$v_{\text{slide}} = \sqrt{2gh} = \sqrt{2 \times 9.8 \times 2.0} = \sqrt{39.2} \approx \mathbf{6.26\ \text{m/s}}$
+
+滚动速度/滑动速度 = $5.29 / 6.26 \approx 0.845$
+
+---
+
+## 综合题 3：飞轮制动——角冲量与功的综合应用
+
+**题目**：一个飞轮（$I = 3.0\ \text{kg·m}^2$）以 $\omega_0 = 40\ \text{rad/s}$ 旋转。制动器对飞轮施加恒定的 $\tau = -12\ \text{N·m}$ 力矩。求：
+(a) 飞轮停止所需的时间
+(b) 制动过程中力矩做的功
+(c) 制动过程中的角冲量大小
+(d) 验证功-能定理和角冲量-角动量定理的一致性
+
+**解答**：
+
+**(a)** $\alpha = \tau/I = -12/3.0 = -4.0\ \text{rad/s}^2$
+
+$t = \dfrac{0 - 40}{-4.0} = \mathbf{10.0\ \text{s}}$
+
+**(b)** 制动过程中的角位移：$\theta = \frac{1}{2}(\omega_0 + 0)t = \frac{1}{2} \times 40 \times 10 = 200\ \text{rad}$
+
 $W = \tau\theta = (-12) \times 200 = \mathbf{-2400\ \text{J}}$（负功，减少动能）
 
 **(c)** 角冲量 = $|\tau t| = 12 \times 10 = \mathbf{120\ \text{N·m·s}}$
