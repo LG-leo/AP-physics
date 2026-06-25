@@ -229,6 +229,194 @@ $$
 
 > ⭐ **No matter how many vectors you add, simply sum their $x$ and $y$ components separately!**
 
+### 5.6 🧪 Derivation: Three Methods for Vector Component Formulas
+
+The vector decomposition formulas $v_x = v\cos\theta$, $v_y = v\sin\theta$ are the most fundamental and important tools in kinematics. Here are three complementary derivation methods to help you understand these formulas from different angles.
+
+#### Method 1: Right Triangle Geometry (Most Intuitive)
+
+The vector $\vec{v}$ and its components $v_x$, $v_y$ form a right triangle. $\vec{v}$ is the hypotenuse, $v_x$ and $v_y$ are the two legs, and $\theta$ is the angle between $\vec{v}$ and the $x$-axis.
+
+In a right triangle, by the definitions of trigonometric functions:
+- $\cos\theta = \dfrac{\text{adjacent}}{\text{hypotenuse}} = \dfrac{v_x}{v}$, therefore $v_x = v\cos\theta$
+- $\sin\theta = \dfrac{\text{opposite}}{\text{hypotenuse}} = \dfrac{v_y}{v}$, therefore $v_y = v\sin\theta$
+
+> 💡 **Geometric Intuition**: Imagine decomposing a force into two perpendicular directions — the side-length relationships of a right triangle naturally yield the component formulas. When $\theta = 0^\circ$, the entire vector lies along the $x$-axis ($v_x = v$, $v_y = 0$); when $\theta = 90^\circ$, the entire vector lies along the $y$-axis ($v_x = 0$, $v_y = v$).
+
+#### Method 2: Unit Vector Projection (Analytic Geometry)
+
+Express the vector as $\vec{v} = v_x\hat{i} + v_y\hat{j}$. At the same time, the vector can also be expressed as magnitude times a unit direction vector:
+
+$$
+\vec{v} = v \cdot \hat{u}
+$$
+
+where $\hat{u}$ is the unit vector in the direction of $\vec{v}$, which can be written as $\hat{u} = \cos\theta\hat{i} + \sin\theta\hat{j}$.
+
+Equating the two representations:
+
+$$
+v_x\hat{i} + v_y\hat{j} = v(\cos\theta\hat{i} + \sin\theta\hat{j})
+$$
+
+Comparing coefficients of $\hat{i}$ and $\hat{j}$:
+
+$$
+v_x = v\cos\theta,\quad v_y = v\sin\theta
+$$
+
+> 💡 **Key Insight**: The components of a unit vector are exactly the cosine and sine of its direction angle — this is the most elegant bridge between analytic geometry and physical vectors.
+
+#### Method 3: Rotation Matrix (Linear Algebra Perspective)
+
+Starting from the standard position (vector along the $x$-axis, i.e., $(v, 0)$), rotate the coordinate system by angle $-\theta$. The vector's coordinates in the new system are the components.
+
+The 2D rotation matrix is:
+
+$$
+\begin{pmatrix} v_x \\ v_y \end{pmatrix} = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}^{-1} \begin{pmatrix} v \\ 0 \end{pmatrix}
+$$
+
+Since the inverse of a rotation matrix is its transpose (property of orthogonal matrices), this is equivalent to rotating the vector $(v, 0)$ by angle $\theta$:
+
+$$
+\begin{pmatrix} v_x \\ v_y \end{pmatrix} = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix} \begin{pmatrix} v \\ 0 \end{pmatrix} = \begin{pmatrix} v\cos\theta \\ v\sin\theta \end{pmatrix}
+$$
+
+> 💡 **Advanced Perspective**: The rotation matrix method reveals that vector decomposition is fundamentally just **coordinate rotation**. This idea reappears repeatedly in electromagnetism (e.g., Lorentz force decomposition) and rigid body mechanics.
+
+### 5.7 🧪 Derivation: Three Methods for Vector Composition Formulas
+
+Composing components back into the vector magnitude $v = \sqrt{v_x^2 + v_y^2}$ and direction $\theta = \tan^{-1}(v_y/v_x)$ also has three derivation methods.
+
+#### Method 1: Direct Pythagorean Theorem
+
+The vector $\vec{v}$ and its components $v_x$, $v_y$ form a right triangle. By the Pythagorean theorem:
+
+$$
+v^2 = v_x^2 + v_y^2 \quad\Rightarrow\quad v = \sqrt{v_x^2 + v_y^2}
+$$
+
+The direction angle follows from the definition of tangent:
+
+$$
+\tan\theta = \frac{\text{opposite}}{\text{adjacent}} = \frac{v_y}{v_x} \quad\Rightarrow\quad \theta = \tan^{-1}\left(\frac{v_y}{v_x}\right)
+$$
+
+**⚠️ Important Reminder**: $\tan^{-1}$ returns angles in $(-90^\circ, 90^\circ)$. If $v_x < 0$, you must add $180^\circ$ (or $\pi$) to get the correct direction angle. This is frequently used to design multiple-choice traps on the AP exam!
+
+#### Method 2: Vector Dot Product (Self-Product)
+
+The magnitude of a vector can also be defined through the dot product (inner product):
+
+$$
+|\vec{v}|^2 = \vec{v} \cdot \vec{v} = (v_x\hat{i} + v_y\hat{j}) \cdot (v_x\hat{i} + v_y\hat{j})
+$$
+
+Using the orthogonality properties $\hat{i} \cdot \hat{i} = \hat{j} \cdot \hat{j} = 1$, $\hat{i} \cdot \hat{j} = 0$:
+
+$$
+|\vec{v}|^2 = v_x^2(\hat{i}\cdot\hat{i}) + v_x v_y(\hat{i}\cdot\hat{j}) + v_y v_x(\hat{j}\cdot\hat{i}) + v_y^2(\hat{j}\cdot\hat{j}) = v_x^2 + v_y^2
+$$
+
+$$
+\Rightarrow\quad |\vec{v}| = \sqrt{v_x^2 + v_y^2}
+$$
+
+> 💡 **Mathematical Essence**: This is essentially the Euclidean norm ($\ell^2$ norm) of a vector. In more advanced mathematics, this concept generalizes to the **norm in an inner product space**.
+
+#### Method 3: Complex Number Representation (AP C Perspective)
+
+Represent a 2D vector as a complex number: $\vec{v} \leftrightarrow z = v_x + iv_y$ (where $i = \sqrt{-1}$).
+
+The modulus of the complex number is:
+
+$$
+|z| = \sqrt{z \cdot \bar{z}} = \sqrt{(v_x + iv_y)(v_x - iv_y)} = \sqrt{v_x^2 + v_y^2}
+$$
+
+The argument (phase angle) is:
+
+$$
+\arg(z) = \tan^{-1}\left(\frac{v_y}{v_x}\right)
+$$
+
+> 💡 **Complex Numbers in Physics**: Complex number representation has wide applications in AC circuit analysis (phasor method) and quantum mechanics (wave functions). Vector composition is essentially a **complex addition** problem!
+
+### 5.8 🧪 Example: Vector Decomposition on an Inclined Plane
+
+**Problem**: A block of mass $m$ rests on a frictionless incline of angle $\theta$. Decompose the gravitational force $\vec{F}_g = mg$ (vertically downward) into components parallel and perpendicular to the incline surface.
+
+**Solution**:
+
+Gravity points vertically downward: $\vec{F}_g = mg(-\hat{j})$ (let upward be $+y$).
+
+**(1) Geometric analysis**: The incline angle is $\theta$, and the angle between gravity and the direction perpendicular to the incline is also $\theta$.
+
+**(2) Component decomposition**:
+
+Parallel to the incline (along the surface):
+$$
+F_{g,\parallel} = mg\sin\theta \quad (\text{down the incline})
+$$
+
+Perpendicular to the incline (normal):
+$$
+F_{g,\perp} = mg\cos\theta \quad (\text{into the incline})
+$$
+
+**(3) Verification**: When $\theta = 0^\circ$ (horizontal surface), $F_{g,\parallel} = 0$ (no sliding tendency), $F_{g,\perp} = mg$ (all weight presses on the surface). When $\theta = 90^\circ$ (vertical surface), $F_{g,\parallel} = mg$ (all weight accelerates along the surface), $F_{g,\perp} = 0$ (no pressure on the surface). ✅
+
+> ⭐ **The inclined plane is the foundation of all mechanics problems** — the parallel component of gravity $mg\sin\theta$ is one of the most frequently used formulas in AP Physics 1!
+
+### 5.9 🧪 Example: Airplane Crosswind Navigation — A Vector Analysis
+
+**Problem**: An airplane has an airspeed (speed in still air) of $250\ \text{km/h}$. It needs to fly due north, but encounters a wind blowing from the northwest ($45^\circ$ north of west) at $50\ \text{km/h}$. Find:
+(a) In what direction should the pilot point the aircraft?
+(b) What is the airplane's actual ground speed?
+
+**Solution**:
+
+Let north be $+y$, east be $+x$.
+
+The wind blows from the northwest, meaning the wind direction is toward the southeast ($45^\circ$ south of east):
+
+$$
+\vec{v}_{W/G} = 50\cos45^\circ\hat{i} + 50(-\sin45^\circ)\hat{j} = 35.36\hat{i} - 35.36\hat{j}
+$$
+
+The airplane's velocity relative to the air (magnitude $250\ \text{km/h}$, direction unknown — let the angle from due north be $\phi$):
+
+$$
+\vec{v}_{P/A} = 250\sin\phi\hat{i} + 250\cos\phi\hat{j}
+$$
+
+**(a)** For the plane to fly due north relative to the ground, $v_{P/G,x} = 0$:
+
+$$
+v_{P/G,x} = 250\sin\phi + 35.36 = 0 \quad\Rightarrow\quad \sin\phi = -\frac{35.36}{250} = -0.1414
+$$
+
+$$
+\phi = \sin^{-1}(-0.1414) \approx -8.13^\circ
+$$
+
+The aircraft should point approximately **$8.1^\circ$ west of north**. ✅
+
+**(b)** Actual ground speed:
+
+$$
+v_{P/G,y} = 250\cos\phi + (-35.36) = 250\cos(-8.13^\circ) - 35.36
+$$
+
+$$
+= 250 \times 0.990 - 35.36 \approx 247.5 - 35.36 = 212.1\ \text{km/h}
+$$
+
+Ground speed is approximately $\mathbf{212\ \text{km/h}\ \text{due north}}$. ✅
+
+> ⭐ **The essence of navigation problems**: Use vector composition to convert an unknown heading direction into a solvable equation — this is a classic application of relative motion.
+
 ---
 
 # Part B: AP Difficulty Layer (Conceptual Traps & Deep Understanding)
@@ -719,7 +907,162 @@ $$
 
 > ⭐ **You only need to memorize any two equations (usually ① and ②); the third can always be derived algebraically!**
 
-#### 3.6 🧪 Example: The Pursuit Problem
+#### 3.5.2 🧪 Derivation: Two More Ways to Derive Equation ①
+
+Equation $v = v_0 + at$ is the cornerstone of the three big equations. Besides the calculus derivation above, here are two more methods.
+
+##### Method 2: From the Definition of Average Acceleration
+
+For uniformly accelerated motion, the average acceleration equals the constant acceleration $a$:
+
+$$
+a = \frac{\Delta v}{\Delta t} = \frac{v - v_0}{t - 0}
+$$
+
+Cross-multiply:
+
+$$
+a \cdot t = v - v_0 \quad\Rightarrow\quad v = v_0 + at
+$$
+
+> 💡 **Physical Intuition**: Acceleration times time equals the change in velocity. Every second that passes, the velocity increases by $a$. This is a **linear accumulation** perspective — final velocity = initial velocity + velocity change accumulated each second.
+
+##### Method 3: From the Geometric Meaning of the v-t Graph
+
+On a v-t graph, uniformly accelerated motion is a straight line with slope $a$, starting at $(0, v_0)$. The vertical coordinate at time $t$ is $v(t)$.
+
+The point-slope equation of the line:
+
+$$
+v(t) - v_0 = a \cdot (t - 0)
+$$
+
+Rearranging:
+
+$$
+v(t) = v_0 + at
+$$
+
+> 💡 **Geometric Intuition**: The equation of a straight line on a v-t graph IS the velocity formula! Slope = acceleration, vertical intercept = initial velocity. This is more intuitive than algebraic symbols — graphs are always the best way to understand formulas.
+
+#### 3.5.3 🧪 Derivation: Two More Ways to Derive Equation ②
+
+Equation $\Delta x = v_0 t + \frac{1}{2}at^2$ reveals the relationship between displacement and time in uniformly accelerated motion.
+
+##### Method 2: From Average Velocity
+
+In uniformly accelerated linear motion, velocity changes linearly with time, so the average velocity equals the arithmetic mean of the initial and final velocities:
+
+$$
+\bar{v} = \frac{v_0 + v}{2}
+$$
+
+Substitute Equation ① $v = v_0 + at$:
+
+$$
+\bar{v} = \frac{v_0 + (v_0 + at)}{2} = v_0 + \frac{1}{2}at
+$$
+
+Displacement = average velocity × time:
+
+$$
+\Delta x = \bar{v} \cdot t = \left(v_0 + \frac{1}{2}at\right) \cdot t = v_0 t + \frac{1}{2}at^2
+$$
+
+> ⭐ **Key Understanding**: Only in **uniformly accelerated linear motion** does the average velocity equal the arithmetic mean of initial and final velocities! The elegance of this method lies in bypassing integration, but the prerequisite is that acceleration is constant.
+
+##### Method 3: From the Area Under a v-t Graph
+
+On a v-t graph, $v(t) = v_0 + at$ is a straight line. The area under the curve from $t=0$ to $t$ is a trapezoid.
+
+The trapezoid's top base is $v_0$, bottom base is $v_0 + at$, and height is $t$:
+
+$$
+\text{Area} = \frac{(v_0) + (v_0 + at)}{2} \cdot t = v_0 t + \frac{1}{2}at^2
+$$
+
+> 💡 **Geometric Insight**: Decompose the trapezoid into a rectangle (area $v_0 t$, corresponding to displacement from uniform motion) and a triangle (area $\frac{1}{2} \cdot at \cdot t = \frac{1}{2}at^2$, the extra displacement contributed by acceleration). So $\Delta x = v_0 t + \frac{1}{2}at^2$ is simply **the sum of rectangle + triangle areas**!
+
+#### 3.5.4 🧪 Derivation: Two More Ways to Derive Equation ③
+
+Equation $v^2 = v_0^2 + 2a\Delta x$ does not contain the time variable, making it very useful for problems where time is not of interest.
+
+##### Method 2: From Energy Conservation (Physics Perspective)
+
+Under a constant force $F = ma$, the work done by the force equals the change in kinetic energy (work-energy principle):
+
+$$
+W = F \cdot \Delta x = ma \cdot \Delta x
+$$
+
+Change in kinetic energy:
+
+$$
+\Delta K = \frac{1}{2}mv^2 - \frac{1}{2}mv_0^2
+$$
+
+By the work-energy principle $W = \Delta K$:
+
+$$
+ma \cdot \Delta x = \frac{1}{2}mv^2 - \frac{1}{2}mv_0^2
+$$
+
+Cancel $m$ and rearrange:
+
+$$
+v^2 = v_0^2 + 2a\Delta x
+$$
+
+> ⭐ **Physical Essence**: Equation ③ is fundamentally the **energy conservation equation under a constant force**! $\frac{1}{2}mv^2 = \frac{1}{2}mv_0^2 + F \cdot \Delta x$ is a more fundamental physical law than the kinematic equations. This derivation also naturally explains why the sign handling of $v$ and $a$ in Equation ③ is different from energy (a scalar!) — work can be positive or negative.
+
+##### Method 3: Eliminating Time from the v-t Graph
+
+On a v-t graph, displacement $\Delta x$ is the trapezoid area, and time $t = \dfrac{v - v_0}{a}$ (from Equation ①).
+
+Trapezoid area formula:
+
+$$
+\Delta x = \frac{v_0 + v}{2} \cdot t = \frac{v_0 + v}{2} \cdot \frac{v - v_0}{a}
+$$
+
+Simplify:
+
+$$
+\Delta x = \frac{(v_0 + v)(v - v_0)}{2a} = \frac{v^2 - v_0^2}{2a}
+$$
+
+Rearrange:
+
+$$
+v^2 = v_0^2 + 2a\Delta x
+$$
+
+> 💡 **Purely Geometric Method**: No calculus, no energy — just trapezoid area + algebraic elimination. This method could have been used in Galileo's era!
+
+### 3.6 The Unified View of the Three Big Equations: Understanding Everything from the v-t Graph
+
+The most profound way to understand the three big equations is to recognize that they all come from **the same v-t graph**:
+
+```
+v (m/s)
+↑
+│        ╱
+│      ╱ |        v-t line: v(t) = v₀ + at
+│    ╱   |
+│  ╱     | Triangle area = ½at²
+│╱_______| Rectangle area = v₀t
+└──────────→ t    Total displacement = v₀t + ½at²
+```
+
+| What You Read from the Graph | The Formula You Get |
+|:--|:--|
+| The **vertical coordinate** of a point on the line | $v = v_0 + at$ (Equation ①) |
+| The **total area** under the line | $\Delta x = v_0 t + \frac{1}{2}at^2$ (Equation ②) |
+| **Eliminate $t$** from the area and coordinates | $v^2 = v_0^2 + 2a\Delta x$ (Equation ③) |
+
+> ⭐ **Ultimate Understanding**: The three big equations are not three isolated formulas — they are **three different ways of reading the same v-t line**. Once you grasp this, you've truly understood uniformly accelerated motion.
+
+#### 3.7 🧪 Example: The Pursuit Problem
 
 **Problem**: A car travels at a constant speed of $20\ \text{m/s}$. The driver notices a truck $80\ \text{m}$ ahead traveling at $10\ \text{m/s}$ in the same direction. The driver immediately applies the brakes, producing a constant deceleration of $2\ \text{m/s}^2$.
 
@@ -1524,6 +1867,73 @@ v(t)
 
 > 💡 **Analogy**: Just like approximating the area under a curve with many tiny rectangles — as the rectangle width approaches 0, the total area equals the definite integral.
 
+#### 4.6.2 🧪 Derivation: Three Validations of the Fundamental Theorem of Calculus in Kinematics
+
+In Section 1.3, the core of graph analysis rests on three relationships:
+1. **x-t slope = velocity**: $v = dx/dt$
+2. **v-t slope = acceleration**: $a = dv/dt = d^2x/dt^2$
+3. **v-t area = displacement**: $\Delta x = \int v\ dt$
+
+These three relationships can be understood and verified using three complementary approaches.
+
+##### Validation 1: Verify the Slope-Area Relationship Using Uniformly Accelerated Motion
+
+Take the displacement function for uniformly accelerated motion $x(t) = v_0 t + \frac{1}{2}at^2$:
+
+Differentiate to get velocity: $v(t) = \frac{dx}{dt} = v_0 + at$ ✓ (x-t slope = velocity)
+
+Differentiate again to get acceleration: $a(t) = \frac{dv}{dt} = a$ ✓ (v-t slope = acceleration)
+
+Conversely, integrate $v(t)$: $\int_0^t (v_0 + a\tau)\ d\tau = v_0 t + \frac{1}{2}at^2 = x(t) - x(0)$ ✓ (v-t area = change in displacement)
+
+> 💡 **Essence of the Fundamental Theorem of Calculus**: Differentiation (slope) and integration (area) are **inverse operations**. This is precisely Newton and Leibniz's greatest discovery.
+
+##### Validation 2: Understanding Slope via Numerical Differences
+
+When $\Delta t$ is very small, the derivative can be approximated by a difference quotient:
+
+$$
+v(t) = \frac{dx}{dt} \approx \frac{x(t+\Delta t) - x(t)}{\Delta t}
+$$
+
+This is the foundation of numerical methods for solving differential equations and the mathematical essence of finding tangent slopes on an x-t graph. As $\Delta t \to 0$, the secant becomes the tangent, and the average velocity becomes the instantaneous velocity.
+
+##### Validation 3: Approximating Area via Riemann Sums
+
+The area under a v-t graph can be approximated by summing rectangles. Divide the interval $[0, t]$ into $n$ equal parts, each of width $\Delta t = t/n$:
+
+$$
+\Delta x \approx \sum_{i=1}^{n} v(t_i) \Delta t
+$$
+
+Taking the limit $n \to \infty$ (i.e., $\Delta t \to 0$), the approximation becomes exact:
+
+$$
+\Delta x = \lim_{n \to \infty} \sum_{i=1}^{n} v(t_i) \Delta t = \int_0^t v(\tau)\ d\tau
+$$
+
+> ⭐ **Practical application on AP C**: If you're given a nonlinear $v(t)$ function, you cannot use the trapezoid formula — you must use a definite integral! But if you're given a piecewise linear graph, you can use the trapezoid formula to find the area — this is very common in AP Physics 1.
+
+#### 4.6.3 Deep Understanding: Why the Area Under a v-t Graph Equals Displacement
+
+We can build an intuitive understanding using a simple physical scenario.
+
+Suppose an object moves with a changing speed. We slice time into extremely thin segments $\Delta t$. Within each tiny time segment, the velocity is almost constant (because velocity doesn't change significantly over an extremely short time interval).
+
+For the $i$-th time segment, the object travels approximately $v(t_i) \cdot \Delta t$. Summing the displacements from all segments:
+
+$$
+\text{Total displacement} \approx \sum_{i} v(t_i) \cdot \Delta t
+$$
+
+On a v-t graph, each $v(t_i) \cdot \Delta t$ is the area of a thin rectangle. As $\Delta t$ approaches zero, the total area of all rectangles precisely equals the area under the curve:
+
+$$
+\text{Displacement} = \lim_{\Delta t \to 0} \sum_i v(t_i) \cdot \Delta t = \int_{t_i}^{t_f} v(t)\ dt
+$$
+
+> ⭐ **In one sentence**: **Velocity is the rate at which displacement accumulates** — the faster you move at any given instant, the more displacement you accumulate per unit time. The area under the v-t graph is the geometric manifestation of this "accumulation effect."
+
 #### 4.7 🧪 Example: Drawing Motion Graphs from a Verbal Description
 
 **Problem**: An object moves along the $x$-axis with the following motion:
@@ -2236,6 +2646,42 @@ Since $\vec{V}$ is constant, $\dfrac{d\vec{V}}{dt} = 0$. ✅
 
 > ⭐ **Important Corollary**: Since $\vec{a}' = \vec{a}$ and mass $m$ is invariant in classical mechanics, $\vec{F} = m\vec{a}$ takes the same form in all inertial frames — this is **Galilean relativity**!
 
+#### 1.4.11.2 🧪 Derivation: Three Validations of the Completeness of the Galilean Transformation
+
+##### Validation 1: Verify Galilean Transformation Using Projectile Motion
+
+**Scenario**: Perform a projectile experiment on a uniformly moving train.
+
+**Ground frame $S$**: The train moves at constant velocity $\vec{V} = V\hat{i}$. A person on the train throws an object with initial velocity $\vec{v}_0'$ (relative to the train).
+
+As seen in the ground frame $S$:
+- Initial velocity $\vec{v}_0 = \vec{v}_0' + \vec{V}$
+- Position $\vec{r}(t) = (\vec{v}_0' + \vec{V})t - \frac{1}{2}gt^2\hat{j}$
+
+As seen in the train frame $S'$:
+- $\vec{r}'(t) = \vec{r}(t) - \vec{V}t = \vec{v}_0' t - \frac{1}{2}gt^2\hat{j}$
+
+In the train frame, the observer sees a **standard projectile motion with initial velocity $\vec{v}_0'$** — there is no sign whatsoever that the train is moving! This is precisely the manifestation of Galilean relativity: **in a uniformly moving reference frame, all mechanical experiments yield the same results as in a stationary reference frame**.
+
+##### Validation 2: Verify Reference Frame Equivalence Using Momentum Conservation
+
+In frame $S$, two objects collide and satisfy momentum conservation: $m_1\vec{v}_1 + m_2\vec{v}_2 = m_1\vec{u}_1 + m_2\vec{u}_2$ (before and after collision).
+
+In frame $S'$ ($\vec{v}_i' = \vec{v}_i - \vec{V}$), momentum conservation becomes:
+$$m_1(\vec{v}_1 - \vec{V}) + m_2(\vec{v}_2 - \vec{V}) = m_1(\vec{u}_1 - \vec{V}) + m_2(\vec{u}_2 - \vec{V})$$
+
+Simplifying reveals that the $-\vec{V}(m_1 + m_2)$ term cancels out on both sides — momentum conservation holds equally in frame $S'$. ✅
+
+##### Validation 3: Prove Invariance of Newton's Second Law
+
+In frame $S$: $\vec{F} = m\vec{a}$
+
+In frame $S'$ ($\vec{V}$ is constant): $\vec{F}' = m\vec{a}' = m\vec{a} = \vec{F}$
+
+Since both acceleration and force are invariant under the Galilean transformation, Newton's second law takes the same form in all inertial frames.
+
+> ⭐ **AP C Core: Galilean Invariance** — "The laws of mechanics have the same form in all inertial reference frames" — this is the cornerstone of Newtonian mechanics, and also the starting point from which Einstein developed special relativity (replacing the Galilean transformation with the Lorentz transformation).
+
 #### 1.4.12 🧪 Example: Multi-Reference Frame Problem
 
 **Problem**: A train travels east at $20\ \text{m/s}$. A person on the train walks east at $2\ \text{m/s}$ (relative to the train). Meanwhile, a person on the ground rides a bicycle east at $5\ \text{m/s}$. Find:
@@ -2930,6 +3376,179 @@ R_{max} = \frac{v_0^2 \sin(2 \times 45^\circ)}{g} = \frac{v_0^2 \sin 90^\circ}{g
 $$
 
 > ⭐ **Physical Intuition**: At $45^\circ$, the horizontal and vertical components of velocity are equal ($v_{0x}=v_{0y}=v_0/\sqrt{2}$), striking the perfect balance between "flying far enough" and "staying in the air long enough"!
+
+#### 1.5.16.2 🧪 Derivation: Three Methods for the Time of Flight Formula
+
+The formula $T = \dfrac{2v_0\sin\theta}{g}$ describes the total time a projectile launched from the ground spends in the air before returning to the same level.
+
+##### Method 1: Symmetry (Physical Intuition)
+
+In the absence of air resistance, the ascent and descent of projectile motion are completely symmetric.
+
+Ascent phase: from launch to the highest point, $v_y$ decreases uniformly from $v_0\sin\theta$ to $0$:
+$$
+0 = v_0\sin\theta - g t_{up} \quad\Rightarrow\quad t_{up} = \frac{v_0\sin\theta}{g}
+$$
+
+By symmetry, descent time = ascent time, therefore:
+$$
+T = t_{up} + t_{down} = 2 \times \frac{v_0\sin\theta}{g} = \frac{2v_0\sin\theta}{g}
+$$
+
+> 💡 **Prerequisite for Symmetry**: The launch and landing points must be at the same height. If the landing point is above or below the launch point (e.g., launching from a cliff), symmetry no longer holds!
+
+##### Method 2: Direct Quadratic Equation Solving (Algebraic)
+
+Set the launch point as the origin. Landing occurs when $y = 0$:
+
+$$
+0 = (v_0\sin\theta) t - \frac{1}{2}gt^2 = t\left(v_0\sin\theta - \frac{1}{2}gt\right)
+$$
+
+The solutions are $t = 0$ (launch instant, discarded) or:
+$$
+t = \frac{2v_0\sin\theta}{g}
+$$
+
+> 💡 **Factorization** is the fastest way to solve this. Note that if you don't factor and instead use the quadratic formula, it takes an extra step — factorization exploits the fact that $t=0$ is already a known root.
+
+##### Method 3: From the $v_y$-$t$ Graph (Graphical)
+
+On a $v_y$-$t$ graph, $v_y(t) = v_0\sin\theta - gt$ is a straight line with slope $-g$.
+
+The line intersects the $t$-axis at $t_{up} = v_0\sin\theta/g$. By symmetry, the two triangles formed by the line and the $t$-axis are congruent, so the total time $T = 2t_{up} = 2v_0\sin\theta/g$.
+
+```
+v_y
+↑
+│   ╲
+│    ╲  at t_up: v_y = 0
+│     ╲
+│      ╲────→ t
+│       ╲  ╱
+│        ╲╱  at t=T: v_y = -v₀sinθ
+│         ╲
+```
+
+> 💡 **Graphical Insight**: On the $v_y$-$t$ graph, at landing $v_y = -v_0\sin\theta$ (same magnitude as the initial vertical component, but pointing downward). This is the key signature of "same-level landing."
+
+#### 1.5.16.3 🧪 Derivation: Three Methods for the Horizontal Range Formula
+
+The formula $R = \dfrac{v_0^2\sin 2\theta}{g}$ is one of the most elegant results in projectile motion.
+
+##### Method 1: Direct Combination (Algebraic Derivation)
+
+Range $R$ = horizontal velocity × time of flight (because horizontal motion is uniform):
+
+$$
+R = v_{0x} \cdot T = (v_0\cos\theta) \cdot \frac{2v_0\sin\theta}{g}
+$$
+
+$$
+= \frac{v_0^2 \cdot 2\sin\theta\cos\theta}{g} = \frac{v_0^2 \sin 2\theta}{g}
+$$
+
+where we've used the trig identity $\sin 2\theta = 2\sin\theta\cos\theta$.
+
+> ⭐ **$R \propto v_0^2$**: Doubling the initial speed quadruples the range! This is why golfers and baseball pitchers need such tremendous power.
+
+##### Method 2: From the Trajectory Equation (Analytic Geometry)
+
+The trajectory equation is:
+$$
+y = x\tan\theta - \frac{g}{2v_0^2\cos^2\theta} x^2
+$$
+
+Landing occurs at $y = 0$ (excluding $x=0$):
+$$
+0 = x\tan\theta - \frac{g}{2v_0^2\cos^2\theta} x^2
+$$
+
+Factor (since $x \neq 0$):
+$$
+\tan\theta = \frac{g}{2v_0^2\cos^2\theta} x \quad\Rightarrow\quad x = \frac{2v_0^2 \sin\theta\cos\theta}{g} = \frac{v_0^2\sin 2\theta}{g}
+$$
+
+> 💡 **Advantage of the Trajectory Equation Method**: When the landing point is NOT at the same level (e.g., $y = -h$), simply replace $y$ with $-h$ and solve the quadratic equation to get the range.
+
+##### Method 3: Dimensional Analysis (A Scaling Perspective)
+
+Range $R$ depends on three parameters: $v_0$, $\theta$, and $g$.
+
+The dimension of $R$ is $[L]$, $v_0$ has dimension $[L/T]$, and $g$ has dimension $[L/T^2]$.
+
+The only dimensionless combination is $\theta$ (angles are inherently dimensionless). To construct $[L]$, we need $v_0^2/g$ ($[L^2/T^2] / [L/T^2] = [L]$).
+
+Therefore $R$ must be proportional to $v_0^2/g$, multiplied by some function of $\theta$:
+$$
+R = \frac{v_0^2}{g} \cdot f(\theta)
+$$
+
+The specific $f(\theta) = \sin 2\theta$ must be determined through dynamical derivation, but dimensional analysis already tells us:
+- $R \propto v_0^2$ (the effect of initial speed)
+- $R \propto 1/g$ (on the Moon, where $g$ is smaller, the range is greater!)
+
+> ⭐ **Dimensional Analysis** is one of the most powerful tools in physics — even without fully understanding the mechanism, you can infer relationships between physical quantities!
+
+#### 1.5.16.4 🧪 Derivation: Three Methods for the Maximum Height Formula
+
+The formula $H = \dfrac{v_0^2\sin^2\theta}{2g}$ describes the highest point of projectile motion.
+
+##### Method 1: From Vertical Motion Directly (Most Direct)
+
+In the vertical direction, the hallmark of the highest point is $v_y = 0$. Use Equation ③ ($v_y^2 = v_{0y}^2 + 2a_y\Delta y$):
+
+$$
+0 = (v_0\sin\theta)^2 + 2(-g)H
+$$
+
+$$
+H = \frac{v_0^2\sin^2\theta}{2g}
+$$
+
+> 💡 **Physical Intuition**: Maximum height depends only on the **initial value of the vertical component of velocity**. The horizontal component does not affect height — horizontal and vertical motions are completely independent!
+
+##### Method 2: From the Time to the Highest Point
+
+First find the time to reach the highest point: $t_{top} = \dfrac{v_0\sin\theta}{g}$
+
+Substitute into the vertical displacement formula:
+$$
+H = (v_0\sin\theta) \cdot t_{top} - \frac{1}{2}g t_{top}^2
+$$
+
+$$
+= (v_0\sin\theta)\frac{v_0\sin\theta}{g} - \frac{1}{2}g\left(\frac{v_0\sin\theta}{g}\right)^2
+$$
+
+$$
+= \frac{v_0^2\sin^2\theta}{g} - \frac{v_0^2\sin^2\theta}{2g} = \frac{v_0^2\sin^2\theta}{2g}
+$$
+
+##### Method 3: From Energy Conservation
+
+At the highest point, all vertical kinetic energy has been converted to gravitational potential energy (taking the launch point as reference):
+
+$$
+\frac{1}{2}m(v_0\sin\theta)^2 = mgH
+$$
+
+$$
+H = \frac{v_0^2\sin^2\theta}{2g}
+$$
+
+> ⭐ **The Power of the Energy Perspective**: Using energy conservation, you can find the maximum height in a single line — no time variable needed at all! This is why the energy method is such an important problem-solving tool in AP Physics 1 FRQs.
+
+#### 1.5.16.5 Deep Relationships Between Projectile Parameters
+
+| Parameter | Formula | Dependence on $\theta$ | Maximum Value |
+|:--|:--|:--|:--|
+| Time of flight $T$ | $\dfrac{2v_0\sin\theta}{g}$ | $\propto \sin\theta$ | $\theta = 90^\circ$ (straight up) |
+| Horizontal range $R$ | $\dfrac{v_0^2\sin 2\theta}{g}$ | $\propto \sin 2\theta$ | $\theta = 45^\circ$ |
+| Maximum height $H$ | $\dfrac{v_0^2\sin^2\theta}{2g}$ | $\propto \sin^2\theta$ | $\theta = 90^\circ$ |
+| $H/R$ ratio | $\dfrac{\tan\theta}{4}$ | $\propto \tan\theta$ | — |
+
+> 💡 **An Interesting Relationship**: $H/R = \tan\theta/4$. This means at $\theta = 45^\circ$, $H = R/4$; at $\theta = 76^\circ$, $H = R$ (height equals range); for $\theta > 76^\circ$, the projectile flies higher than it goes far!
 
 #### 1.5.17 🧪 Example: Choosing the Right Launch Angle
 
